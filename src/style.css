@@ -1,0 +1,396 @@
+/* Configurações Globais */
+:root {
+    --primary-color: #007bff; /* Azul vibrante (Saúde/Confiança) */
+    --secondary-color: #28a745; /* Verde (WhatsApp/Alívio) */
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --background-light: #ffffff;
+    --background-dark: #f0f8ff; /* Azul suave para seções */
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    background-color: var(--background-dark);
+    padding: 60px 0;
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 2;
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- CTA BUTTONS --- */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+}
+
+.primary-cta {
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+}
+
+.primary-cta:hover {
+    background-color: #1e7e34;
+    transform: scale(1.03);
+}
+
+.secondary-cta {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+    margin-top: 20px;
+}
+
+.secondary-cta:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+
+
+/* --- SECTIONS GERAIS --- */
+section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+section:nth-child(even) { 
+    background-color: #fff;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+/* --- PAIN POINTS --- */
+.pain-points {
+    background-color: var(--background-light);
+}
+
+.points-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    text-align: left;
+}
+
+.point-item {
+    background: #ffe0e0; 
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.point-item h3 {
+    color: #cc0000;
+    font-size: 1.1em;
+}
+
+/* --- NOVO: LASER AND PET BENEFITS --- */
+.laser-and-pet-benefits {
+    background-color: var(--background-light);
+    padding: 60px 0;
+}
+
+.laser-content-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.laser-card {
+    flex: 1;
+    text-align: left;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.human-care {
+    background-color: var(--background-dark);
+    border-left: 5px solid var(--primary-color);
+}
+
+.pet-care {
+    background-color: #ffeccf; 
+    border-left: 5px solid #ff9900; 
+}
+
+.laser-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.laser-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.laser-card li {
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.laser-card li:last-child {
+    border-bottom: none;
+}
+
+.laser-card .icon {
+    margin-right: 10px;
+    font-weight: 700;
+    color: var(--secondary-color); 
+}
+
+/* --- SOLUTIONS/BENEFITS --- */
+.solutions {
+    background-color: var(--background-dark);
+}
+
+.benefit-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.benefit-list li {
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--secondary-color);
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    font-size: 1.1em;
+}
+
+/* --- TESTIMONIALS (AJUSTADO PARA CARROSSEL) --- */
+.testimonials {
+    background-color: #f9f9f9;
+}
+
+.carousel-wrapper {
+    /* Define o tamanho da "janela" e esconde o que está fora */
+    overflow: hidden; 
+    margin: 30px auto;
+}
+
+.testimonials-carousel {
+    /* É o contêiner que segura todos os depoimentos */
+    display: flex;
+    /* Remove a barra de rolagem nativa */
+    overflow-x: auto; 
+    /* Garante que o JS possa controlar o scroll-behavior para a animação */
+    scroll-behavior: smooth; 
+    /* Impede que o usuário navegue pelos itens arrastando (será feito via JS) */
+    pointer-events: none;
+}
+
+/* Estilo para cada Depoimento (O item individual do carrossel) */
+.testimonial-card {
+    min-width: 90%; 
+    max-width: 90%;
+    margin-right: 20px; 
+    
+    background-color: var(--background-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Permite que os cards fiquem alinhados lado a lado sem quebra */
+    flex-shrink: 0; 
+    text-align: left; 
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.testimonial-card cite {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+
+/* --- ABOUT/AUTHORITY --- */
+.about p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.certifications img {
+    height: 50px; 
+    margin: 0 15px;
+}
+
+/* --- FINAL CTA --- */
+.final-cta {
+    background-color: var(--primary-color);
+    padding: 50px 0;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* --- WHATSAPP FLOAT BUTTON --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; 
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    padding: 10px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.whatsapp-icon {
+    width: 25px;
+    height: 25px;
+    /* Você deve substituir 'whatsapp-icon.png' ou usar um ícone SVG/font */
+}
+
+a#cta-laser-mid {
+    margin-top: 2rem;
+}
+
+
+/* --- MEDIA QUERIES (Responsividade) --- */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .profile-img {
+        max-width: 400px;
+        margin-top: 20px;
+    }
+
+    .points-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .laser-content-grid {
+        flex-direction: column;
+    }
+
+    .point-item {
+        margin: 0 10px;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 15px 10px;
+        font-size: 1em;
+    }
+    
+    .testimonial-card {
+        min-width: 100%; /* Ocupa a largura total no celular */
+    }
+}
+
+@media (min-width: 769px) {
+    .testimonial-card {
+        min-width: 45%; 
+    }
+}
+
+@media (min-width: 1024px) {
+    .testimonial-card {
+        min-width: 30%; 
+    }
+}
