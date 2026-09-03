@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===============================================
     
     // 1. ALTERE PARA O SEU NÚMERO REAL (Ex: 5511987654321)
-    const seuNumero = '554799576292'; 
+    const seuNumero = '5547933892937';
     // NOVA MENSAGEM PADRÃO
     const mensagemPadrao = 'Olá! Gostaria de saber mais sobre a Laserterapia e/ou agendar uma avaliação.';
 
