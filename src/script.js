@@ -13,20 +13,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const mensagemCodificada = encodeURIComponent(mensagemPadrao);
     const whatsappLink = `https://api.whatsapp.com/send?phone=${seuNumero}&text=${mensagemCodificada}`;
 
-    // 2. Seleciona todos os botões e links que devem levar ao WhatsApp
-    const ctaButtons = [
-        document.getElementById('whatsapp-float'),
-        document.getElementById('cta-hero'),
-        document.getElementById('cta-laser-mid'), // Novo botão da seção Laser
-        document.getElementById('cta-footer')
-    ];
+    // 2. Mapeia cada botão ao seu identificador (usado no rastreamento do GTM)
+    const ctaButtonLocations = {
+        'whatsapp-float': 'flutuante',
+        'cta-hero': 'hero',
+        'cta-laser-mid': 'laserterapia',
+        'cta-footer': 'cta_final'
+    };
 
-    // 3. Adiciona o link e o evento de clique para cada elemento
+    const ctaButtons = Object.keys(ctaButtonLocations)
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+    // 3. Adiciona o link, o evento de clique e o disparo do evento no dataLayer (GTM)
+    window.dataLayer = window.dataLayer || [];
+
     ctaButtons.forEach(button => {
-        if (button) {
-            button.setAttribute('href', whatsappLink);
-            button.setAttribute('target', '_blank'); // Abre em nova aba
-        }
+        button.setAttribute('href', whatsappLink);
+        button.setAttribute('target', '_blank'); // Abre em nova aba
+
+        button.addEventListener('click', function() {
+            window.dataLayer.push({
+                event: 'whatsapp_click',
+                button_location: ctaButtonLocations[button.id]
+            });
+        });
     });
 
     // ===============================================
