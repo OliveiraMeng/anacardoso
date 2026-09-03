@@ -2,6 +2,7 @@
 :root {
     --primary-color: #007bff; /* Azul vibrante (Saúde/Confiança) */
     --secondary-color: #28a745; /* Verde (WhatsApp/Alívio) */
+    --whatsapp-green: #25d366; /* Verde do botão flutuante "Agende Rápido" */
     --text-dark: #333;
     --text-light: #f4f4f4;
     --background-light: #ffffff;
@@ -38,7 +39,6 @@ h1, h2, h3 {
 .hero-section {
     background-color: var(--background-dark);
     padding: 60px 0;
-    border-bottom: 5px solid var(--primary-color);
 }
 
 .hero-content {
@@ -72,7 +72,7 @@ h1, h2, h3 {
 .profile-img {
     width: 100%;
     max-width: 400px;
-    border-radius: 50%;
+    border-radius: 24px;
     border: 3px solid var(--primary-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -90,32 +90,57 @@ h1, h2, h3 {
 }
 
 .primary-cta {
-    background-color: var(--secondary-color);
+    background-color: var(--whatsapp-green);
     color: white;
-    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
 }
 
 .primary-cta:hover {
-    background-color: #1e7e34;
     transform: scale(1.03);
 }
 
 .secondary-cta {
-    background-color: var(--primary-color);
+    background-color: var(--whatsapp-green);
     color: white;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
     margin-top: 20px;
 }
 
 .secondary-cta:hover {
-    background-color: #0056b3;
     transform: scale(1.03);
+}
+
+/* Efeito de destaque no CTA principal do hero */
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+#cta-hero,
+#whatsapp-float,
+#cta-laser-mid,
+#cta-footer {
+    animation: pulse-whatsapp 2s infinite;
+}
+
+#cta-hero:hover,
+#whatsapp-float:hover,
+#cta-laser-mid:hover,
+#cta-footer:hover {
+    animation: none;
 }
 
 
 /* --- SECTIONS GERAIS --- */
 section {
-    padding: 40px 0;
+    padding: 60px 0;
     text-align: center;
 }
 
@@ -154,35 +179,20 @@ section h2 {
     font-size: 1.1em;
 }
 
-/* --- NOVO: LASER AND PET BENEFITS --- */
-.laser-and-pet-benefits {
+/* --- LASER BENEFITS --- */
+.laser-benefits {
     background-color: var(--background-light);
-    padding: 60px 0;
-}
-
-.laser-content-grid {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    justify-content: center;
 }
 
 .laser-card {
-    flex: 1;
     text-align: left;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.human-care {
+    max-width: 700px;
+    margin: 30px auto 0;
     background-color: var(--background-dark);
     border-left: 5px solid var(--primary-color);
-}
-
-.pet-care {
-    background-color: #ffeccf; 
-    border-left: 5px solid #ff9900; 
 }
 
 .laser-card h3 {
@@ -230,7 +240,7 @@ section h2 {
     padding: 15px 20px;
     margin-bottom: 10px;
     border-left: 5px solid var(--secondary-color);
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     font-size: 1.1em;
 }
@@ -238,6 +248,40 @@ section h2 {
 /* --- TESTIMONIALS (AJUSTADO PARA CARROSSEL) --- */
 .testimonials {
     background-color: #f9f9f9;
+}
+
+.rating-summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 12px 22px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: transform 0.3s;
+}
+
+.rating-summary:hover {
+    transform: scale(1.03);
+}
+
+.rating-number {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.rating-stars {
+    color: #f5a623;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+.rating-count {
+    font-size: 0.9em;
+    color: #666;
+    text-decoration: underline;
 }
 
 .carousel-wrapper {
@@ -279,10 +323,44 @@ section h2 {
     margin-bottom: 15px;
 }
 
-.testimonial-card cite {
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.testimonial-info cite {
     display: block;
     font-weight: 600;
-    color: var(--primary-color);
+    font-style: normal;
+    color: var(--text-dark);
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+.testimonial-source {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #999;
 }
 
 
@@ -297,10 +375,100 @@ section h2 {
     margin: 0 15px;
 }
 
-/* --- FINAL CTA --- */
-.final-cta {
+/* --- FACILITY / NOSSO ESPAÇO --- */
+.facility {
+    background-color: var(--background-light);
+}
+
+.facility-intro {
+    max-width: 700px;
+    margin: 0 auto 10px;
+    font-size: 1.1em;
+}
+
+.facility-carousel-wrapper {
+    position: relative;
+    margin-top: 30px;
+}
+
+.facility-gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+}
+
+.facility-photo {
+    flex: 0 0 auto;
+    width: 260px;
+    scroll-snap-align: start;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 3 / 4;
+}
+
+.facility-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.facility-photo:hover img {
+    transform: scale(1.08);
+}
+
+.facility-next {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border: none;
+    border-radius: 50%;
     background-color: var(--primary-color);
-    padding: 50px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+    animation: nudge-right 1.2s ease-in-out infinite;
+}
+
+.facility-next:hover {
+    animation-play-state: paused;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.facility-next-arrow {
+    line-height: 1;
+}
+
+@keyframes nudge-right {
+    0%, 100% {
+        transform: translateY(-50%) translateX(0);
+    }
+    50% {
+        transform: translateY(-50%) translateX(16px);
+    }
+}
+
+/* --- FINAL CTA --- */
+section.final-cta {
+    background-color: var(--primary-color);
+}
+
+.final-cta h2 {
+    color: white;
 }
 
 
@@ -318,7 +486,7 @@ footer {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #25d366; 
+    background-color: var(--whatsapp-green);
     color: white;
     border-radius: 50px;
     text-align: center;
@@ -363,10 +531,6 @@ a#cta-laser-mid {
         flex-direction: column;
         gap: 20px;
     }
-    
-    .laser-content-grid {
-        flex-direction: column;
-    }
 
     .point-item {
         margin: 0 10px;
@@ -380,6 +544,14 @@ a#cta-laser-mid {
     
     .testimonial-card {
         min-width: 100%; /* Ocupa a largura total no celular */
+    }
+
+    .facility-photo {
+        width: 75vw;
+    }
+
+    .facility-next {
+        right: 0;
     }
 }
 

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 1. ALTERE PARA O SEU NÚMERO REAL (Ex: 5511987654321)
     const seuNumero = '554799576292'; 
     // NOVA MENSAGEM PADRÃO
-    const mensagemPadrao = 'Olá! Gostaria de saber mais sobre a Laserterapia e/ou agendar uma avaliação (humana ou pet).';
+    const mensagemPadrao = 'Olá! Gostaria de saber mais sobre a Laserterapia e/ou agendar uma avaliação.';
 
     // Codifica a mensagem para URLs
     const mensagemCodificada = encodeURIComponent(mensagemPadrao);
@@ -66,6 +66,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Define o intervalo para a rolagem (a cada 4 segundos)
-        setInterval(startCarouselScroll, 4000); 
+        setInterval(startCarouselScroll, 4000);
+    }
+
+    // ===============================================
+    // LÓGICA DA GALERIA DO CONSULTÓRIO (MANUAL)
+    // ===============================================
+
+    const facilityGallery = document.getElementById('facility-gallery');
+    const facilityNextBtn = document.getElementById('facility-next');
+
+    if (facilityGallery && facilityNextBtn) {
+        facilityNextBtn.addEventListener('click', function() {
+            const firstPhoto = facilityGallery.querySelector('.facility-photo');
+            const scrollAmount = firstPhoto ? firstPhoto.offsetWidth + 20 : 280; // Largura do card + gap
+            const maxScroll = facilityGallery.scrollWidth - facilityGallery.clientWidth;
+
+            if (facilityGallery.scrollLeft >= maxScroll - 5) {
+                // Chegou ao fim: volta para o início
+                facilityGallery.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                facilityGallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        });
     }
 });
